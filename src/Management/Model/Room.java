@@ -95,7 +95,6 @@ public class Room {
                             break;
                         default:
                             System.out.println("Lua chon khong hop le!");
-                            break;
                     }
                 } while(choose!=5);
                 roomList.add(room);
