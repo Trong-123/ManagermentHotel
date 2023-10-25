@@ -7,6 +7,7 @@ public class Hotel {
     private String name;
     private String address;
 
+
     private ArrayList<Room> rooms; // tao mot mang cua lop phong
 
     public Hotel(String id, String name, String address, ArrayList<Room> rooms) {
@@ -15,6 +16,7 @@ public class Hotel {
         this.address = address;
         this.rooms = rooms;
     }
+
 
     public String getId() {
         return id;
