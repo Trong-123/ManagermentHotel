@@ -57,4 +57,11 @@ public class Hotel {
                 ", rooms=" + rooms +
                 '}';
     }
+
+    public static void main(String[] args){
+        ArrayList<Room> r = null;
+        Hotel ht=new Hotel("1110","trong","Nguyen Trai",null);
+        System.out.println(ht.toString());
+    }
+
 }

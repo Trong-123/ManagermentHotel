@@ -1,6 +1,6 @@
 package Management.Service;
 
-import Management.Data.DataRoom;
+
 import Management.Model.Room;
 import Management.Service.IService.IRoomService;
 
@@ -8,29 +8,32 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RoomService implements IRoomService {
-    private ArrayList<Room> room;
+    private ArrayList<Room> rooms;
 
-    public RoomService(){
-        this.room = new DataRoom().dataRoom();
-    }
 
-    public RoomService(ArrayList<Room> room){
-        this.room = room;
+
+    public RoomService(ArrayList<Room> rooms){
+
+        this.rooms = rooms;
     }
+public RoomService(){
+
+}
 
 
     @Override
     public Room getId(String id) {
+
         return null;
     }
 
     @Override
     public ArrayList<Room> getList() {
 
-        return this.room;
+        return this.rooms;
     }
     @Override
-    public ArrayList<Room> add() {
+    public ArrayList<Room> addRoom() {
         Scanner reader=new Scanner(System.in);
         ArrayList<Room> roomList= new ArrayList<>();
         System.out.print("Nhap so luong phong can them: ");
@@ -50,7 +53,7 @@ public class RoomService implements IRoomService {
                 room.setType(reader.nextLine());
                 if(room!=null) {
                     roomList.add(room);
-                    this.room.add(room);
+                    this.rooms.add(room);
                     break;
                 }
             }
@@ -59,7 +62,7 @@ public class RoomService implements IRoomService {
         return roomList;
     }
     @Override
-    public  Room find(String id, ArrayList<Room> list){
+    public  Room findRoom(String id, ArrayList<Room> list){
         Room r = new Room();
         for(Room r1: list)
             if(r1.getId().equals(id))
@@ -68,19 +71,19 @@ public class RoomService implements IRoomService {
     }
 
     @Override
-    public Room delete(String id){
-        Room r1 = new RoomService().find(id,room);
+    public Room deleteRoom(String id){
+        Room r1 = new RoomService().findRoom(id,rooms);
       if( r1 == null) {
           System.err.println("Khong Tim Thay");
           return null;
       }
-      this.room.remove(r1);
+      this.rooms.remove(r1);
 
       return r1; // xoa xong hết trả về th đã xóa để in ra màn hình
     }
 
     @Override
-    public ArrayList<Room> update(ArrayList<Room> roomList) {
+    public ArrayList<Room> updateRoom(ArrayList<Room> roomList) {
         Scanner reader=new Scanner(System.in);
         System.out.print("Nhap ID phong can chinh sua: ");
         String idNeedEdit=reader.nextLine();
@@ -158,11 +161,12 @@ public class RoomService implements IRoomService {
 
     }
 
-    public ArrayList<Room> getRoom() {
-        return room;
+    public ArrayList<Room> getRooms() {
+        return rooms;
     }
 
-    public void setRoom(ArrayList<Room> room) {
-        this.room = room;
+    public void setRooms(ArrayList<Room> rooms) {
+
+        this.rooms = rooms;
     }
 }
